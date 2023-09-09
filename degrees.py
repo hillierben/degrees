@@ -92,24 +92,18 @@ def shortest_path(source, target):
     If no possible path, returns None.
     """
 
-    # TODO
-
     # initialise number of explored states
     num_explored = 0
 
     #initialise list of explored states
     explored = set()
 
-    # source and target are the IDs of the actors
-
-    # start node will contain actor/none pair (target has already been declared and input into this function)
+    # start node will contain source actor 
     start = Node(state=source, parent=None, action=None)
     # initilaise frontier
     frontier = QueueFrontier()
     # add starting node to frontier
     frontier.add(start)
-
-    explored = set()
 
 
     while True:
@@ -130,8 +124,7 @@ def shortest_path(source, target):
                 path.append((node.action, node.state))
                 node = node.parent
             path.reverse()
-            print(path)
-            return
+            return path
         
         explored.add(node.state)
         
